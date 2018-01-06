@@ -12,14 +12,14 @@ clear
 THREAD="-j$(grep -c ^processor /proc/cpuinfo)"
 KERNEL="Image"
 DTBIMAGE="dtb"
-export CLANG_PATH=~/android/clang/clang-4479392/bin/
+export CLANG_PATH=~/android/clang/clang-4523590/bin/
 export PATH=${CLANG_PATH}:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export CROSS_COMPILE=${HOME}/android/uberbuild/out/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 DEFCONFIG="snoke_defconfig"
 
 # Kernel Details
-VER=".R5"
+VER=".R6"
 
 # Paths
 KERNEL_DIR=`pwd`
