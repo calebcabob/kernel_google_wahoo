@@ -59,6 +59,7 @@ function make_dtb {
 
 function make_boot {
 		cp -vr $ZIMAGE_DIR/Image.lz4-dtb ~/android/AnyKernel2/zImage
+        cp -vr $ZIMAGE_DIR/dtbo.img ~/android/AnyKernel2/dtbo.img
 }
 
 
