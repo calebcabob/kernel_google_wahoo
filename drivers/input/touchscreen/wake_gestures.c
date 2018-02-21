@@ -39,7 +39,7 @@
 #define WG_DEFAULT		0
 #define S2W_DEFAULT		0
 #define S2S_DEFAULT		0
-#define WG_PWRKEY_DUR           600
+#define WG_PWRKEY_DUR           180
 
 /* taimen */
 #define SWEEP_Y_MAX             2880
