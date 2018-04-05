@@ -20,7 +20,7 @@ export CROSS_COMPILE_ARM32=${HOME}/android/arm-linux-androideabi-4.9/bin/arm-lin
 DEFCONFIG="snoke_defconfig"
 
 # Kernel Details
-VER=".R24"
+VER=".R25"
 
 # Paths
 KERNEL_DIR=`pwd`
