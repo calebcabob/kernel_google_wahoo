@@ -79,6 +79,7 @@
 #include <linux/sysctl.h>
 #include <linux/kcov.h>
 #include <linux/cpufreq.h>
+#include <linux/cpu_input_boost.h>
 
 #include <asm/pgtable.h>
 #include <asm/pgalloc.h>
@@ -1383,6 +1384,10 @@ static struct task_struct *copy_process(unsigned long clone_flags,
 	 */
 	p->clear_child_tid = (clone_flags & CLONE_CHILD_CLEARTID) ? child_tidptr : NULL;
 
+#ifdef CONFIG_CPU_FREQ_STAT
+	cpufreq_task_stats_init(p);
+#endif
+
 	ftrace_graph_init_task(p);
 
 	rt_mutex_init_task(p);
@@ -1780,6 +1785,10 @@ long _do_fork(unsigned long clone_flags,
 	struct task_struct *p;
 	int trace = 0;
 	long nr;
+
+	/* Boost CPU to the max for 1250 ms when userspace launches an app */
+	if (is_zygote_pid(current->pid))
+		cpu_input_boost_kick_max(1250);
 
 	/*
 	 * Determine whether and which event to report to ptracer.  When
